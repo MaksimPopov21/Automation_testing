@@ -3,11 +3,12 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
+
 s = Service('C:\\chromedriver\\chromedriver.exe')
 
 
 def pytest_addoption(parser):
-    parser.addoption("--language", action="store", default='en', help="Specify the language for the tests")
+    parser.addoption("--language", action="store", default='en-gb', help="Specify the language for the tests")
 
 
 @pytest.fixture(scope="function")
