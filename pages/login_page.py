@@ -11,10 +11,7 @@ class LoginPage(BasePage):
     def should_be_login_url(self):
         # self.browser.find_element(*MainPageLocators.LOGIN_LINK), "Login link is not presented"
         url = self.browser.current_url()
-        if 'login' in url:
-            assert True
-        else:
-            return '"url" haven`t "login"'
+        assert 'login' in url, f'"url" haven`t word "login"'
         # реализуйте проверку на корректный url адрес
         # assert True
 
