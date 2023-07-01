@@ -10,7 +10,7 @@ class ProductPage(BasePage):
 
     def should_be_book_name(self):
         book_name = self.browser.find_element(*ProductPageLocators.BOOK_NAME).text
-        print(book_name)
+        # print(book_name)
         return book_name
 
     def should_be_price(self):
@@ -20,7 +20,7 @@ class ProductPage(BasePage):
 
     def basket_book_name(self):
         basket_book_name = self.browser.find_element(*ProductPageLocators.BASKET_BOOK_NAME).text
-        print(basket_book_name)
+        # print(basket_book_name)
         return basket_book_name
 
     def basket_price(self):
