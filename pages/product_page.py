@@ -1,6 +1,9 @@
 from pages.base_page import BasePage
 from selenium.webdriver.common.by import By
 from pages.locators import ProductPageLocators
+from selenium.common.exceptions import TimeoutException
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 
 class ProductPage(BasePage):
@@ -27,6 +30,11 @@ class ProductPage(BasePage):
         basket_price = self.browser.find_element(*ProductPageLocators.BASKET_PRICE).text
         return basket_price
 
-    def go_to_basket_page(self):
-        login_link = self.browser.find_element(*ProductPageLocators.VIEW_BASKET)
-        login_link.click()
+    def should_not_be_success_message_is_disappeared(self):
+        assert self.is_disappeared(*ProductPageLocators.BASKET_BOOK_NAME), \
+           "Success message is presented, but should not be"
+
+    def should_not_be_success_message_is_not_element_present(self):
+        assert self.is_not_element_present(*ProductPageLocators.BASKET_BOOK_NAME), \
+           "Success message is presented, but should not be"
+
